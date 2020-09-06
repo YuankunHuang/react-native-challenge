@@ -10,15 +10,15 @@ const SearchBar = props => {
 
     const searchInputHandler = input => {
         setSearchInput(input);
+        props.onChangeText(input);
     };
 
     const search = () => {
-        alert('search');
     };
 
     const clearSearchInput = () => {
         setSearchInput('');
-        alert('clear');
+        props.onChangeText('');
     };
 
     return (

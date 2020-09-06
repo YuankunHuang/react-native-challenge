@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Image, Alert, TouchableOpacity, Keyboard } from 'react-native';
 
 import SearchBar from './SearchBar';
@@ -7,6 +7,9 @@ import MyButton from './MyButton';
 import Tag from './Tag';
 
 const Header = props => {
+    const changeTextHandler = text => {
+        props.onKeywordChange(text);
+    };
 
     return (
         <View style={styles.header}>
@@ -16,13 +19,11 @@ const Header = props => {
                     <MyButton image={<Image source={require('../assets/cart.png')} />} onPress={() => alert('Cart')} />
                 </View>
             </View>
-            <SearchBar />
-            <View style={styles.tagContainer}>
-                <View style={styles.tags}>
-                    <Tag image={<Image source={require('../assets/food.png')} style={styles.tagImage} />} title='Food' />
-                    <Tag image={<Image source={require('../assets/meat.png')} style={styles.tagImage} />} title='Meat' />
-                    <Tag image={<Image source={require('../assets/seafood.png')} style={styles.tagImage} />} title='Seafood' />
-                </View>
+            <SearchBar onChangeText={changeTextHandler} />
+            <View style={styles.tags}>
+                <Tag image={<Image source={require('../assets/food.png')} style={styles.tagImage} />} title='Food' onPress={props.onChooseCategory} isChosen={props.chosenCategory === 'Food'} />
+                <Tag image={<Image source={require('../assets/meat.png')} style={styles.tagImage} />} title='Meat' onPress={props.onChooseCategory} isChosen={props.chosenCategory === 'Meat'} />
+                <Tag image={<Image source={require('../assets/seafood.png')} style={styles.tagImage} />} title='Seafood' onPress={props.onChooseCategory} isChosen={props.chosenCategory === 'Seafood'} />
             </View>
         </View>
     );
@@ -49,15 +50,11 @@ const styles = StyleSheet.create({
         width: 30,
         height: 30
     },
-    tagContainer: {
-        paddingHorizontal: 50,
-        alignContent: 'center'
-    },
     tags: {
-        paddingTop: 5,
         flexDirection: 'row',
-        overflow: 'hidden',
-    },
+        justifyContent: 'space-around',
+        paddingTop: 7
+    }
 });
 
 export default Header;
