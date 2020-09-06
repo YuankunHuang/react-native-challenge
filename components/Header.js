@@ -33,7 +33,8 @@ const styles = StyleSheet.create({
     header: {
         width: '100%',
         height: 178.5,
-        backgroundColor: Colors.test
+        backgroundColor: 'white',
+        elevation: 5
     },
     storeTitle: {
         paddingLeft: 14,

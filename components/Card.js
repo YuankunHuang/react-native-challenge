@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'flex-start',
         paddingHorizontal: 15,
-        paddingVertical: 15
+        paddingVertical: 15,
     },
     name: {
         fontFamily: 'PingFangSC-semibold',

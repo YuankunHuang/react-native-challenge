@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, Alert, TouchableWithoutFeedback, Keyboard, FlatList, SafeAreaView } from 'react-native';
+import { StyleSheet, Text, View, Alert, TouchableWithoutFeedback, Keyboard, FlatList, SafeAreaView, ActivityIndicator } from 'react-native';
 
 // font
 import * as Font from 'expo-font';
